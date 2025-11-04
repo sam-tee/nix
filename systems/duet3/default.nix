@@ -1,13 +1,20 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  username,
+  ...
+}: {
+  home-manager.users.${username}.imports = [./home.nix];
   hardware.firmware = [
     pkgs.chromeos-sc7180-unredistributable-firmware
   ];
-  hardware.sensor.iio.enable = true;
+  hardware.sensor.iio.enable = false;
 
-  swapDevices = [{
-    device = "/swapfile";
-    size = 4*1024;
-  }];
+  swapDevices = [
+    {
+      device = "/swapfile";
+      size = 4 * 1024;
+    }
+  ];
 
   services.tailscale = {
     enable = true;

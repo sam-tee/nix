@@ -51,6 +51,7 @@ in {
         bitwarden
         brave
         firefox
+        zotero
       ])
       ++ (lib.optionals cfg.enableExtra [
         discord

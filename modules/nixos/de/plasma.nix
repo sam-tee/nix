@@ -22,6 +22,8 @@ in {
     services = {
       displayManager.sddm = {
         enable = cfg.enableDM;
+        extraPackages = [pkgs.maliit-keyboard];
+        settings.Wayland.CompositorCommand = "${pkgs.kdePackages.kwin}/bin/kwin_wayland --no-global-shortcuts --no-kactivities --no-lockscreen --locale1 --inputmethod maliit-keyboard";
         wayland.enable = true;
       };
       desktopManager.plasma6.enable = true;

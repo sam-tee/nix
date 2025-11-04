@@ -10,7 +10,7 @@ in {
   options.hMods.packages.zed = {
     enable = lib.mkEnableOption "Zed" // {default = config.hMods.packages.enableMinimal;};
     package = lib.mkPackageOption pkgs "zed-editor" {
-      nullable = false;
+      nullable = true;
     };
   };
   config = lib.mkIf cfg.enable {
