@@ -48,7 +48,7 @@ in {
         raycast
       ])
       ++ (lib.optionals cfg.enableMinimal [
-        bitwarden
+        bitwarden-desktop
         brave
         firefox
         zotero

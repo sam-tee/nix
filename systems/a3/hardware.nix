@@ -28,13 +28,13 @@
   hardware = {
     graphics = {
       enable = true;
+      driSupport = true;
       extraPackages = with pkgs; [
         intel-compute-runtime
         intel-media-driver
-        intel-ocl
-        libvdpau-va-gl
-        vaapiIntel
-        vaapiVdpau
+        intel-graphics-compiler
+        level-zero
+        clinfo
         vpl-gpu-rt
       ];
     };

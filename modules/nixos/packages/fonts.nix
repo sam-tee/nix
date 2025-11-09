@@ -4,7 +4,7 @@
       inter
       ibm-plex
       nerd-fonts.lilex
-      noto-fonts-emoji
+      noto-fonts-color-emoji
     ];
     fontconfig = {
       enable = true;

@@ -34,7 +34,11 @@ in {
       binfmt.emulatedSystems = cfg.emulatedSystems;
       consoleLogLevel = 0;
       extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
-      initrd.verbose = false;
+      initrd = {
+        enable = true;
+        systemd.enable = cfg.loader == "systemd";
+        verbose = false;
+      };
       kernelModules = ["v4l2loopback"];
       kernelPackages = pkgs.linuxPackages_latest;
       kernelParams = [
