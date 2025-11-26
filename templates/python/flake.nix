@@ -16,12 +16,14 @@
         pkgs = nixpkgs.legacyPackages.${system};
         pythonEnv = pkgs.python3.withPackages (p:
           with p; [
-            python-lsp-server
+            #python modules go here
           ]);
       in {
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
+            basedpyright
             pythonEnv
+            ruff
           ];
           shellHook = ''
             export PATH=${pythonEnv}/bin:$PATH

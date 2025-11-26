@@ -10,10 +10,33 @@
     nixpkgs,
     self,
   }:
-    flake-utils.lib.eachDefaultSystem (system:
-    let
+    flake-utils.lib.eachDefaultSystem (system: let
       pkgs = nixpkgs.legacyPackages.${system};
+      watchScript = pkgs.writeShellScriptBin "watch-tex" ''
+        if [ -z "$1" ]; then
+            echo "Error no file name provided"
+            echo "Usage: watch-tex <filename>"
+            exit 1
+        fi
+
+        ${pkgs.latexmk}/bin/latexmk -pvc -pdf -interaction=nonstopmode -synctex=1 "$1"
+      '';
+      compileScript = pkgs.writeShellScriptBin "compile-tex" ''
+        if [ -z "$1" ]; then
+            echo "Error no file name provided"
+            echo "Usage: watch-tex <filename>"
+            exit 1
+        fi
+
+        ${pkgs.latexmk}/bin/latexmk -pvc -pdf "$1"
+      '';
     in {
-      packages.default = pkgs.callPackage ./default.nix {inherit pkgs;};
+      devShells.default = pkgs.mkShell {
+        packages = with pkgs; [
+          compileScript
+          watchScript
+          texliveFull
+        ];
+      };
     });
 }

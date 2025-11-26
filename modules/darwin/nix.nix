@@ -10,7 +10,7 @@
       trusted-users = [username];
     };
     registry."akhlus".to = {
-      owner = "akhlus";
+      owner = "sam-tee";
       repo = "nix";
       type = "github";
     };

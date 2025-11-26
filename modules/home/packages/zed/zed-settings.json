@@ -15,13 +15,13 @@
   "buffer_font_family": "Lilex Nerd Font Mono",
   "buffer_font_size": 14,
   "edit_predictions": {
-    "mode": "subtle",
     "copilot": {
+      "enterprise_uri": null,
       "proxy": null,
-      "proxy_no_verify": null,
-      "enterprise_uri": null
+      "proxy_no_verify": null
     },
-    "enabled_in_text_threads": false
+    "enabled_in_text_threads": false,
+    "mode": "subtle"
   },
   "features": {
     "edit_prediction_provider": "zed"
@@ -30,27 +30,27 @@
     "Markdown": ["qmd"]
   },
   "gutter": {
-    "line_numbers": true,
-    "runnables": true,
     "breakpoints": true,
-    "folds": true
+    "folds": true,
+    "line_numbers": true,
+    "runnables": true
   },
   "icon_theme": "Zed (Default)",
   "inlay_hints": {
-    "enabled": true,
-    "show_value_hints": true,
-    "show_type_hints": true,
-    "show_parameter_hints": true,
-    "show_other_hints": false,
-    "show_background": false,
     "edit_debounce_ms": 700,
+    "enabled": true,
     "scroll_debounce_ms": 50,
+    "show_background": false,
+    "show_other_hints": false,
+    "show_parameter_hints": true,
+    "show_type_hints": true,
+    "show_value_hints": true,
     "toggle_on_modifiers_press": {
-      "control": false,
       "alt": false,
-      "shift": false,
+      "control": false,
+      "function": false,
       "platform": false,
-      "function": false
+      "shift": false
     }
   },
   "languages": {
@@ -62,11 +62,7 @@
     "Python": {
       "format_on_save": "on",
       "formatter": [
-        {
-          "code_actions": {
-            "source.organizeImports.ruff": true
-          }
-        },
+        { "code_action": "source.organizeImports.ruff" },
         {
           "language_server": {
             "name": "ruff"
@@ -84,14 +80,14 @@
           "command": ["alejandra"]
         },
         "options": {
-          "nixos": {
-            "expr": "(builtins.getFlake github:akhlus/nix).nixosConfigurations.test.options"
-          },
           "darwin": {
             "expr": "(builtins.getFlake github:akhlus/nix).darwinConfigurations.test.options"
           },
           "home": {
             "expr": "(builtins.getFlake github:akhlus/nix).homeConfigurations.test.options"
+          },
+          "nixos": {
+            "expr": "(builtins.getFlake github:akhlus/nix).nixosConfigurations.test.options"
           }
         }
       }
@@ -104,8 +100,8 @@
     "button": false
   },
   "project_panel": {
-    "dock": "right",
-    "button": true
+    "button": true,
+    "dock": "right"
   },
   "scrollbar": {
     "show": "auto"
