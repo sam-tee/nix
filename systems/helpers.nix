@@ -36,7 +36,7 @@ in {
     username ? "sam",
     extraModules ? [],
   }: {
-    ${hostname} = inputs.home.lib.homeManagerConfiguration {
+    ${hostname} = inputs.home-manager.lib.homeManagerConfiguration {
       pkgs = inputs.nixpkgs.legacyPackages.${system};
       extraSpecialArgs = mkArgs hostname username;
       modules =

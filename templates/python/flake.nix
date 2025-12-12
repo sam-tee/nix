@@ -24,6 +24,7 @@
             basedpyright
             pythonEnv
             ruff
+            #uv
           ];
           shellHook = ''
             export PATH=${pythonEnv}/bin:$PATH

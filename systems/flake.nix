@@ -2,7 +2,7 @@
   description = "Flake for nix hosts";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    home = {
+    home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -13,7 +13,7 @@
     akhlus = {
       url = "path:../.";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home";
+      inputs.home-manager.follows = "home-manager";
     };
     mobile-nixos = {
       url = "github:mobile-nixos/mobile-nixos";
@@ -24,7 +24,7 @@
     plasma-manager = {
       url = "github:nix-community/plasma-manager";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home";
+      inputs.home-manager.follows = "home-manager";
     };
   };
   outputs = inputs @ {...}: let

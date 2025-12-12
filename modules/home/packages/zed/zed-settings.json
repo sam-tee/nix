@@ -1,6 +1,6 @@
 {
   "agent": {
-    "dock": "left"
+    "dock": "right"
   },
   "auto_install_extensions": {
     "html": true,
