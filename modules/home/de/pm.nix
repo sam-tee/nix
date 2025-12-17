@@ -1,10 +1,4 @@
-{
-  config,
-  lib,
-  username,
-  ...
-}:
-lib.mkIf config.hMods.de.enablePM {
+{config, ...}: {
   programs = let
     mkFont = family: size: {
       inherit family;
@@ -27,11 +21,11 @@ lib.mkIf config.hMods.de.enablePM {
       };
       fonts = {
         fixedWidth = mkFont "Lilex Nerd Font Mono" 12;
-        general = mkFont "IBM Plex Sans" 12;
-        menu = mkFont "IBM Plex Sans" 12;
-        small = mkFont "IBM Plex Sans" 9;
-        toolbar = mkFont "IBM Plex Sans" 12;
-        windowTitle = mkFont "IBM Plex Sans" 12;
+        general = mkFont "Inter Variable" 12;
+        menu = mkFont "Inter Variable" 12;
+        small = mkFont "Inter Variable" 9;
+        toolbar = mkFont "Inter Variable" 12;
+        windowTitle = mkFont "Inter Variable" 12;
       };
       hotkeys.commands."launch-ghostty" = {
         name = "Launch Ghostty";
@@ -143,7 +137,7 @@ lib.mkIf config.hMods.de.enablePM {
         enableMiddleClickPaste = true;
         lookAndFeel = "org.kde.breezedark.desktop";
         colorScheme = "BreezeDark";
-        wallpaper = "/home/${username}/${config.hMods.cosmetic.backgroundFile}";
+        wallpaper = "/home/${config.primaryUser.username}/${config.background.backgroundFile}";
         wallpaperFillMode = "stretch";
       };
     };

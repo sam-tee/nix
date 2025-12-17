@@ -30,7 +30,7 @@ in {
       '';
     };
   };
-  config = lib.mkIf cfg.enable{
+  config = lib.mkIf cfg.enable {
     environment.variables = {
       SSH_AUTH_SOCK = cfg.sshAuthSock;
     };

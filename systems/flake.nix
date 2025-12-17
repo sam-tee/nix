@@ -11,7 +11,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     akhlus = {
-      url = "path:../.";
+      url = "path:../modules";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };

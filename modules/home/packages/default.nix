@@ -58,7 +58,6 @@ in {
         gemini-cli
         google-chrome
         spotdl
-        spotify
         yt-dlg
       ])
       ++ (lib.optionals cfg.enableLinuxExtra [

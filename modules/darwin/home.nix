@@ -1,10 +1,7 @@
-{
-  specialArgs,
-  ...
-}: {
+{specialArgs, ...}: {
   home-manager = {
     backupFileExtension = "bak";
     extraSpecialArgs = specialArgs;
-    sharedModules = [ ../home];
+    sharedModules = [../home];
   };
 }

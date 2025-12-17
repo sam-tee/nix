@@ -35,7 +35,7 @@
     lazygit.enable = true;
     nh = {
       enable = true;
-      clean.enable=true;
+      clean.enable = true;
     };
     ripgrep.enable = true;
     starship = {

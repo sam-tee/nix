@@ -1,4 +1,7 @@
-{buildGoModule, lib}:
+{
+  buildGoModule,
+  lib,
+}:
 buildGoModule {
   pname = "test";
   version = "VERSION_NUMBER";

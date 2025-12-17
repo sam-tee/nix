@@ -121,7 +121,10 @@ in {
           ports = [cfg.server.port];
           settings = {
             PasswordAuthentication = cfg.server.passwordAuth;
-            PermitRootLogin = if cfg.server.rootLogin then "yes" else "no";
+            PermitRootLogin =
+              if cfg.server.rootLogin
+              then "yes"
+              else "no";
           };
           extraConfig = cfg.server.extraConfig;
         };
@@ -134,8 +137,16 @@ in {
           enable = true;
           extraConfig = ''
             Port ${toString cfg.server.port}
-            PasswordAuthentication ${if cfg.server.passwordAuth then "yes" else "no"}
-            PermitRootLogin ${if cfg.server.rootLogin then "yes" else "no"}
+            PasswordAuthentication ${
+              if cfg.server.passwordAuth
+              then "yes"
+              else "no"
+            }
+            PermitRootLogin ${
+              if cfg.server.rootLogin
+              then "yes"
+              else "no"
+            }
             UsePAM yes
             Include /etc/ssh/crypto.conf
             ${cfg.server.extraConfig}

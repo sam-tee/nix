@@ -29,7 +29,7 @@ in {
 
     homebrew = {
       enable = true;
-      casks = ["ghostty"] ++ cfg.extraCasks;
+      casks = ["ghostty" "spotify"] ++ cfg.extraCasks;
       masApps = {"Bitwarden" = 1352778147;} // cfg.extraMasApps;
       onActivation.cleanup = "zap";
     };

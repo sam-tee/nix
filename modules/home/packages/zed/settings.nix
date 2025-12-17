@@ -1,5 +1,5 @@
 {
-  agent.dock = "left";
+  agent.dock = "right";
   auto_install_extensions = {
     html = true;
     latex = true;
@@ -61,13 +61,16 @@
   };
   load_direnv = "shell_hook";
   lsp = {
+    basedpyright = {
+      settings.python.analysis.typeCheckingMode = "standard";
+    };
     nixd = {
       settings = {
         formatting = {command = ["alejandra"];};
         options = {
-          darwin = {expr = "(builtins.getFlake github:akhlus/nix).darwinConfigurations.test.options";};
-          home = {expr = "(builtins.getFlake github:akhlus/nix).homeConfigurations.test.options";};
-          nixos = {expr = "(builtins.getFlake github:akhlus/nix).nixosConfigurations.test.options";};
+          darwin = {expr = "(builtins.getFlake github:sam-tee/nix).darwinConfigurations.test.options";};
+          home = {expr = "(builtins.getFlake github:sam-tee/nix).homeConfigurations.test.options";};
+          nixos = {expr = "(builtins.getFlake github:sam-tee/nix).nixosConfigurations.test.options";};
         };
       };
     };
@@ -80,6 +83,7 @@
   };
   scrollbar = {show = "auto";};
   show_edit_predictions = false;
+  soft_wrap = "none";
   ssh_connections = [
     {
       host = "u410";

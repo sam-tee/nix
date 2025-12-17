@@ -16,14 +16,19 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+    modules.url = "path:./modules";
+    systems.url = "path:./systems";
+    templates.url = "path:./templates";
   };
-  outputs = inputs @ {self, ...}: let
-    modules = import ./modules {inherit inputs self;};
-    templates = import ./templates;
-    systems = import ./systems {inherit inputs self;};
-  in {
-    inherit (modules) darwinModules homeModules nixosModules;
-    inherit (templates) templates;
-    inherit (systems) darwinConfigurations homeConfigurations nixosConfigurations;
+  outputs = inputs @ {self, ...}: {
+    templates = inputs.templates.templates;
+
+    darwinConfigurations = inputs.systems.darwinConfigurations;
+    nixosConfigurations = inputs.systems.nixosConfigurations;
+    homeConfigurations = inputs.systems.homeConfigurations;
+
+    darwinModules = inputs.modules.darwinModules;
+    homeModules = inputs.modules.homeModules;
+    nixosModules = inputs.modules.nixosModules;
   };
 }

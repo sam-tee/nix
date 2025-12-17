@@ -1,10 +1,14 @@
-{inputs, self, ...}: let
+{
+  inputs,
+  self,
+  ...
+}: let
   args = {
     hostname = "test";
     username = "sam";
     inherit inputs;
   };
-in{
+in {
   darwinConfigurations."test" = inputs.nix-darwin.lib.darwinSystem {
     system = "aarch64-darwin";
     specialArgs = args;
